@@ -1,5 +1,5 @@
 var path = require('path'),
-fs = require('fs');
+fs = require('fs'),
 folderPath = path.join(__dirname, '/../');
 
 module.exports.controller = function(app) {
@@ -13,11 +13,16 @@ module.exports.controller = function(app) {
 
   app.get('/*', function (req, res) {
     var uri = decodeURI(req.params[0]);
-    console.log(uri);
-    var folders = getFolders(path.join(folderPath,uri));
-    var files = getFiles(path.join(folderPath,uri));
-    data = {'folders': folders, 'files': files};
-    res.render('files/index', data);
+    if(uri.indexOf('file=') > -1){
+      uri = uri.replace('file=','')
+      var file = path.join(folderPath,uri);
+      res.download(file);
+    }else{
+      var folders = getFolders(path.join(folderPath,uri));
+      var files = getFiles(path.join(folderPath,uri));
+      data = {'folders': folders, 'files': files};
+      res.render('files/index', data);
+    }
   })
 
   function getFolders(folder){
