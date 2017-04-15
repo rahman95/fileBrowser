@@ -10,21 +10,16 @@ link(href='/public/app.css', rel='stylesheet')
             i.material-icons.open folder_open
           .text
              p !{val}
-             .follow
-               .display
-                 i.material-icons cloud_queue
-                 p  Downloading File
-                 
-       each val in files
-         a(class='icon file' href='/file='+ val)
-            .border
-               .img
-                 i.material-icons description
-                 i.material-icons.open description
-               .text
-                  p !{val}
-                  .follow
-                    .display
-                      i.material-icons cloud_queue
-                      p  Downloading File
+  each val in files
+   a(class='icon file' href='/file='+ val)
+      .border
+         .img
+           i.material-icons description
+           i.material-icons.open description
+         .text
+            p !{val}  
+.follow
+  .display
+    i.material-icons cloud_queue
+    p  Downloading File
   
