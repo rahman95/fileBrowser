@@ -11,21 +11,24 @@ module.exports.controller = function(app) {
   })
 
   app.get('/:folder', function (req, res) {
-    var folder = req.params.folder;
+    var folder = decodeURI(req.params.folder);
     var files = getFiles(folder);
 
     data = {files: files};
     res.render('files/index2', data);
   })
 
-  function getFolders(path){
-    return fs.readdirSync(path).filter(function (file) {
-      return fs.statSync(path+'/'+file).isDirectory();
+  function getFolders(folder){
+    return fs.readdirSync(folder).filter(function (file) {
+      return fs.statSync(folder+'/'+file).isDirectory();
     });
   }
 
   function getFiles(folder){
-    return 'files';
+    folder = path.join(folderPath, folder);
+    return fs.readdirSync(folder).filter(function (file) {
+      return fs.statSync(folder+'/'+file);
+    });
   }
 
 }

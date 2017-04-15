@@ -83,6 +83,7 @@ body{
    border-radius:2px;
 }
 .icon{
+   color: #fff;
    float:left;
    min-width:100px;
    max-width:100px;
@@ -90,7 +91,10 @@ body{
    display:inline-block;
    text-align:center;
    padding:5px;
-   *{ pointer-events:none; }
+   text-decoration: none;
+   *{
+      pointer-events:none;
+     }
    .img{
       height:50px;
       position:relative;

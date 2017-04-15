@@ -3,7 +3,7 @@ link(href='public/app.css', rel='stylesheet')
 
 .container
   each val in folders
-    .icon
+    a(class='icon' href='/'+ val)
        .border
           .img
             i.material-icons folder
