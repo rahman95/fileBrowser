@@ -1,9 +1,9 @@
 link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
-link(href='public/app.css', rel='stylesheet')
+link(href='/public/app.css', rel='stylesheet')
 
 .container
   each val in folders
-    a(class='icon folder' href='/'+ val)
+    a(class='icon folder' href= val + '/')
        .border
           .img
             i.material-icons folder
