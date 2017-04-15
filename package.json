@@ -12,5 +12,11 @@
   },
   "author": "",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/ryounus95/filebrowser#readme"
+  "homepage": "https://bitbucket.org/ryounus95/filebrowser#readme",
+  "dependencies": {
+    "express": "^4.15.2",
+    "node-sass": "^4.5.2",
+    "node-sass-middleware": "^0.11.0",
+    "pug": "^2.0.0-beta11"
+  }
 }
