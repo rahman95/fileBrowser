@@ -3,7 +3,7 @@ link(href='public/app.css', rel='stylesheet')
 
 .container
   each val in folders
-    a(class='icon' href='/'+ val)
+    a(class='icon folder' href='/'+ val)
        .border
           .img
             i.material-icons folder
@@ -14,5 +14,17 @@ link(href='public/app.css', rel='stylesheet')
                .display
                  i.material-icons cloud_queue
                  p  Downloading File
-  else
-    p  No Folders
+                 
+       each val in files
+         a(class='icon file' href='/file='+ val)
+            .border
+               .img
+                 i.material-icons description
+                 i.material-icons.open description
+               .text
+                  p !{val}
+                  .follow
+                    .display
+                      i.material-icons cloud_queue
+                      p  Downloading File
+  

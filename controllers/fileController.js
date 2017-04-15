@@ -1,22 +1,23 @@
 var path = require('path'),
 fs = require('fs');
-folderPath = path.join(__dirname, '/../public/server');
+folderPath = path.join(__dirname, '/../');
 
 module.exports.controller = function(app) {
 
   app.get('/', function (req, res) {
     var folders = getFolders(folderPath);
-    data = {folders: folders};
+    var files = getFiles(folderPath);
+    data = {'folders': folders, 'files': files};
     res.render('files/index', data);
   })
 
-  app.get('/:folder', function (req, res) {
-    var folder = decodeURI(req.params.folder);
-    var files = getFiles(folder);
-
-    data = {files: files};
-    res.render('files/index2', data);
-  })
+  // app.get('/:folder', function (req, res) {
+  //   var folder = decodeURI(req.params.folder);
+  //   var files = getFiles(folder);
+  //
+  //   data = {files: files};
+  //   res.render('files/index2', data);
+  // })
 
   function getFolders(folder){
     return fs.readdirSync(folder).filter(function (file) {
@@ -25,9 +26,8 @@ module.exports.controller = function(app) {
   }
 
   function getFiles(folder){
-    folder = path.join(folderPath, folder);
     return fs.readdirSync(folder).filter(function (file) {
-      return fs.statSync(folder+'/'+file);
+      return fs.statSync(folder+'/'+file).isFile();
     });
   }
 
