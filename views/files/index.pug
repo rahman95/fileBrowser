@@ -1,17 +1,18 @@
 link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
 link(href='public/app.css', rel='stylesheet')
 
-
 .container
-   each val in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-      .icon
-         .border
-            .img
-               i.material-icons description
-               i.material-icons.open description
-            .text
-               p Click Me! #[span=val]
-   .follow
-   .display
-      i.material-icons cloud_queue
-      p  Downloading File #{folder}
+  each val in folders
+    .icon
+       .border
+          .img
+            i.material-icons folder
+            i.material-icons.open folder_open
+          .text
+             p !{val}
+             .follow
+               .display
+                 i.material-icons cloud_queue
+                 p  Downloading File
+  else
+    p  No Folders

@@ -4,7 +4,7 @@ sassMiddleware = require('node-sass-middleware'),
 http = require('http'),
 path = require('path'),
 fs = require('fs');
-
+folderPath = path.join(__dirname, 'public/server');
 
 app.use(sassMiddleware({
 src: __dirname,
@@ -26,4 +26,5 @@ fs.readdirSync('./controllers').forEach(function (file) {
 
 app.listen(3000, function () {
   console.log('Listening on port 3000!')
+  //console.log(folderPath);
 })
