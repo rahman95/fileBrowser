@@ -1,0 +1,25 @@
+link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+link(href='/public/app.css', rel='stylesheet')
+
+.container
+  each val in folders
+    a(class='icon folder' href= val + '/')
+       .border
+          .img
+            i.material-icons folder
+            i.material-icons.open folder_open
+          .text
+             p !{val}
+  each val in files
+   a(class='icon file' href='file='+ val)
+      .border
+         .img
+           i.material-icons description
+           i.material-icons.open description
+         .text
+            p !{val}  
+.follow
+  .display
+    i.material-icons cloud_queue
+    p  Downloading File
+  
